@@ -7,8 +7,7 @@ Full-stack developer focused on learning and building working software.
 and mainly bash and py related projects
 
 Currently working on:
-
-# [xreate-panel](https://github.com/Xreatlabs) - JS-based game server manager and daemon
+ [xreate-panel](https://github.com/Xreatlabs) - JS-based game server manager and daemon
 
 ---
 ### Tech Stack
