@@ -69,6 +69,7 @@ LABEL maintainer="Making Docker Fun"
 ![](https://github-readme-streak-stats.herokuapp.com/?user=g-flame&theme=radical&hide_border=true)
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=g-flame&theme=radical&hide_border=true&include_all_commits=true&count_private=false&layout=compact)
 
+> Thought this looks cool dose it tho ?
 <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" width="100%">
 
 [![](https://visitcount.itsvg.in/api?id=g-flame&icon=3&color=3)](https://visitcount.itsvg.in)
