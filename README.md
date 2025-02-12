@@ -1,79 +1,29 @@
 
 <div align="center">
   
-# 🔥 G-flame 🔥
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=F70000&random=false&width=435&lines=Building+Tools;Learning+New+Things;Open+Source+Enthusiast)](https://git.io/typing-svg)
+#  G-flame 
+Teen Dev Learning And Using C/C++, JavaScript, Python, Bash And Many More.<br><br>I Have Made Many Projects That Make My Life Easier And Maybe You Will Find Them Appealing Too.
 
-</div>
+# 💻 Tech Stack:
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![PNPM](https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=f69220) ![Raspberry Pi](https://img.shields.io/badge/-Raspberry_Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi)
 
-## 🛠️ What I Do
-```bash
-$ while true; do
-    build_cool_stuff
-    learn_new_things
-    contribute_to_opensource
-done
-```
+## 🌐 Socials:
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/https://discord.gg/n89WUuuCsS) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@@topgflame) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:thegreenflame507@gmail.com) 
 
-## 🚀 Projects
+### 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=g-flame&theme=transparent&hide_border=true&include_all_commits=true&count_private=true)<br/>
+![](https://github-readme-streak-stats.herokuapp.com/?user=g-flame&theme=transparent&hide_border=true)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=g-flame&theme=transparent&hide_border=true&include_all_commits=true&count_private=true&layout=compact)
 
-### 🍓 RPI Setup Script
-```python
-def make_rpi_setup():
-    return "Easy RPI setup for everyone!"
-```
-A script that makes setting up Raspberry Pi as easy as pie 🥧
+### 🏆 GitHub Trophies
+![](https://github-profile-trophy.vercel.app/?username=g-flame&theme=transparent&no-frame=true&no-bg=true&margin-w=4)
 
-### 🎮 Skyport
-```javascript
-const skyport = {
-    type: "Game Server Manager",
-    status: "Making it work again!",
-    features: ["Panel", "Daemon", "Easy Install"]
-}
-```
+### 🔝 Top Contributed Repo
+![](https://github-contributor-stats.vercel.app/api?username=g-flame&limit=5&theme=transparent&combine_all_yearly_contributions=true)
 
-### 🐋 Docker Projects
-```dockerfile
-FROM g-flame/awesome:latest
-LABEL maintainer="Making Docker Fun"
-```
-- 📦 Custom Minecraft Bedrock Container
-- 🎮 Skyport Panel in Docker
-- 🔧 And more containerized goodies!
-
-## 💻 Tech Stack
-<div align="center">
-
-![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) 
-![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) 
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-
-</div>
-
-## 🌟 Open Source
-<div align="center">
-
-#### Founder of G-Flame-OSS
-*Creating open source solutions for everyone*
-
-</div>
-
-## 📊 GitHub Magic
-<div align="center">
-
-![](https://github-readme-stats.vercel.app/api?username=g-flame&theme=radical&hide_border=true&include_all_commits=true&count_private=false)
-![](https://github-readme-streak-stats.herokuapp.com/?user=g-flame&theme=radical&hide_border=true)
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=g-flame&theme=radical&hide_border=true&include_all_commits=true&count_private=false&layout=compact)
-
-> Thought this looks cool dose it tho ?
-<img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake-dark.svg" width="100%">
-
+---
 [![](https://visitcount.itsvg.in/api?id=g-flame&icon=3&color=3)](https://visitcount.itsvg.in)
 
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 </div>
-
 
