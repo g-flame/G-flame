@@ -8,7 +8,7 @@ Teen Dev Learning And Using C/C++, JavaScript, Python, Bash And Many More.<br><b
 [![C](https://img.shields.io/badge/C-00599C?logo=c&logoColor=white)](#)[![C++](https://img.shields.io/badge/C++-%2300599C.svg?logo=c%2B%2B&logoColor=white)](#) [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](#) [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#) [![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff)](#)[![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)](#)
 
 ##  Discord Server:
-<img src="https://dcbadge.limes.pink/api/server/https://discord.gg/n89WUuuCsS"> 
+![](https://dcbadge.limes.pink/api/server/https://discord.gg/n89WUuuCsS) 
 
 ###  GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=g-flame&theme=transparent&hide_border=true&include_all_commits=true&count_private=true)<br/>
