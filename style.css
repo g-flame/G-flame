@@ -56,52 +56,17 @@ body {
   padding: var(--space-4);
   margin: 0 auto;
   background-image: url(assets/background/background.png);
-  background-size:auto; 
-  background-position: center; 
-  background-repeat: no-repeat; 
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: rgba(39, 44, 38, 0.8); 
+  background-color: rgba(39, 44, 38, 0.8);
   background-blend-mode: overlay;
   position: relative;
   animation: fadeIn 1s var(--transition-normal), backgroundPulse 15s ease-in-out infinite alternate;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: 
-    url(assets/background/shape1.png),
-    url(assets/background/shape2.png),
-    url(assets/background/shape3.png),
-    url(assets/background/shape1.png),
-    url(assets/background/shape3.png);
-    background-position:
-    85% 12%,
-    43% 67%,
-    17% 83%,
-    9% 25%,
-    92% 76%;
-  background-size:
-    187px,
-    142px,
-    213px,
-    196px,
-    168px;
-  background-repeat: no-repeat;
-  animation: fadeIn 1s var(--transition-normal);
-  animation: pixelFloat 12s cubic-bezier(0.4, 0.0, 0.2, 1) infinite alternate;
-  z-index: -1;
-  opacity: 0.6;
-  will-change: transform;
-  backface-visibility: hidden;
-  filter: saturate(1.2) contrast(1.05);
-}
-
+body::before,
 body::after {
   content: "";
   position: fixed;
@@ -110,28 +75,25 @@ body::after {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background-image: 
-    url(assets/background/shape1.png),
-    url(assets/background/shape2.png),
-    url(assets/background/shape3.png),
-    url(assets/background/shape2.png);
-  background-position: 
-    20% 30%,
-    70% 60%,
-    40% 80%,
-    85% 25%;
-  background-size: 
-    120px,
-    150px,
-    100px,
-    130px;
   background-repeat: no-repeat;
-  animation: fadeIn 1s var(--transition-normal);
-  animation: pixelFloat 12s cubic-bezier(0.4, 0.0, 0.2, 1) infinite alternate;
+  animation: fadeIn 1s var(--transition-normal), pixelFloat 12s cubic-bezier(0.4, 0.0, 0.2, 1) infinite alternate;
   z-index: -1;
   opacity: 0.6;
   will-change: transform;
   backface-visibility: hidden;
+}
+
+body::before {
+  background-image: url(assets/background/shape1.png), url(assets/background/shape2.png), url(assets/background/shape3.png), url(assets/background/shape1.png), url(assets/background/shape3.png);
+  background-position: 85% 12%, 43% 67%, 17% 83%, 9% 25%, 92% 76%;
+  background-size: 187px, 142px, 213px, 196px, 168px;
+  filter: saturate(1.2) contrast(1.05);
+}
+
+body::after {
+  background-image: url(assets/background/shape1.png), url(assets/background/shape2.png), url(assets/background/shape3.png), url(assets/background/shape2.png);
+  background-position: 20% 30%, 70% 60%, 40% 80%, 85% 25%;
+  background-size: 120px, 150px, 100px, 130px;
 }
 
 .main-container::before {
@@ -141,32 +103,24 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0) 50%),
-    radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.06) 0%, rgba(16, 185, 129, 0) 60%);
-  animation: fadeIn 1s var(--transition-normal);
-  animation: pixelPulse 8s cubic-bezier(0.4, 0.0, 0.2, 1) infinite alternate;
+  background-image: radial-gradient(circle at 30% 40%, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0) 50%), radial-gradient(circle at 70% 60%, rgba(16, 185, 129, 0.06) 0%, rgba(16, 185, 129, 0) 60%);
+  animation: fadeIn 1s var(--transition-normal), pixelPulse 8s cubic-bezier(0.4, 0.0, 0.2, 1) infinite alternate;
   z-index: -2;
   pointer-events: none;
 }
 
-body {
-  position: relative;
-}
-
 main, header, nav, footer, .main-container {
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 }
 
-/* Animation Keyframes */
 @keyframes backgroundPulse {
   0% {
     background-size: 100% 100%;
     background-color: rgba(39, 44, 38, 0.82);
   }
   50% {
-    background-size: 105% 105%; 
+    background-size: 105% 105%;
     background-color: rgba(39, 44, 38, 0.78);
   }
   100% {
@@ -174,6 +128,7 @@ main, header, nav, footer, .main-container {
     background-color: rgba(39, 44, 38, 0.82);
   }
 }
+
 @keyframes pixelFloat {
   0% {
     transform: translate(0, 0);
@@ -238,21 +193,24 @@ main, header, nav, footer, .main-container {
 }
 
 @keyframes fadeIn {
-  from { 
-    opacity: 0; 
-    transform: translateY(10px); 
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Shape Animations */
-.shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
+.shape-1,
+.shape-2,
+.shape-3,
+.shape-4,
+.shape-5 {
   will-change: transform;
-  transform: translateZ(0); /* Force hardware acceleration */
-  backface-visibility: hidden; /* Reduce paints */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .shape-1 {
@@ -293,6 +251,7 @@ main, header, nav, footer, .main-container {
   will-change: transform;
   backface-visibility: hidden;
 }
+
 
 /* Interactive Elements */
 a, button, .interactive-element {
