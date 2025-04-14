@@ -56,7 +56,7 @@ body {
   padding: var(--space-4);
   margin: 0 auto;
   background-image: url(assets/background/background.png);
-  background-size: cover; 
+  background-size:auto; 
   background-position: center; 
   background-repeat: no-repeat; 
   background-attachment: fixed;
