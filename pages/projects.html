@@ -1,30 +1,88 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" href="../style.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title> G-flame </title>
-    </head>
-    <body>
-        <nav>
-            <ul>
-                <img src="../assets/image.png" width="7%" height="7%" alt="Profile">
-                <li class="unselected"><a href="../index.html">Home </a></li>
-                <li class="selected"><a href="projects.html">Projects</a></li>
-            </ul>
-        </nav>
-        <!--projects-->
-        <div class="projectsg">
-            <h2>Projects</h2>
-            <h4><a href="https://github.com/g-flame-oss/skyport" target="_blank">Skyport-installer<img src="../assets/link.png" class="link-icon"></a></h4>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>G-flame</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
 
-            <p> A Installer for the deprecete skyport panel and Skyport daemon </p>
-            <h4><a href="https://github.com/g-flame-oss/rpi-options" target="_blank">Rpi-options<img src="../assets/link.png" class="link-icon"></a></h4>
-            <p>a BASH script that aims to make it easy to setup a Rasperry pi</p>
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Rendering</div>
+        <div class="loading-credits">G-flame all rights reserved</div>
+    </div>
+
+    <nav>
+        <ul>
+            <img src="../assets/image.png" width="3%" height="3%" alt="Profile">
+            <li class="unselected"><a href="../index.html">Home</a></li>
+            <li class="selected"><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects -->
+    <div class="projects-parent">
+
+        <div class="unselected">
+            <div class="card">
+                <div class="image"><img src="../assets/skyport.jpg"></div>
+                <div class="content">
+                    <span class="title"><a href="#">Skyport-installer</a></span>
+                    <p class="desc">Working installer for the deprecated Skyport panel and daemon game server manager</p>
+                    <a class="action" href="https://github.com/g-flame-oss/skyport">View<span aria-hidden="true"> → </span></a>
+                </div>
+            </div>
         </div>
-        <footer>G-flame all rights reserved</footer>
-        
-    </body>
-</html>
-        
 
+        <div class="unselected">
+            <div class="card">
+                <div class="image"><img src="../assets/rpi.jpg"></div>
+                <div class="content">
+                    <span class="title"><a href="#">Rpi-options</a></span>
+                    <p class="desc">A BASH script aiming to make it easy to setup a Raspberry Pi device that is running or not running Raspbian</p>
+                    <a class="action" href="https://github.com/g-flame-oss/rpi-options">View<span aria-hidden="true"> → </span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="unselected">
+            <div class="card">
+                <div class="image"><img src="../assets/k8.jpg"></div>
+                <div class="content">
+                    <span class="title"><a href="#">Lenovok8plus-root-guide</a></span>
+                    <p class="desc">Guide on rooting and installing GSI custom ROM for The Lenovo K8+ device (MARINO)</p>
+                    <a class="action" href="https://github.com/g-flame-oss/lenovok8plus-root-guide">View<span aria-hidden="true"> → </span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="unselected">
+            <div class="card">
+                <div class="image"><img src="../assets/docker.png"></div>
+                <div class="content">
+                    <span class="title"><a href="#">Docker-Projects</a></span>
+                    <p class="desc">Repository containing many Docker-based projects such as a custom Docker container for Minecraft Bedrock edition and custom Docker files for the Skyport panel</p>
+                    <a class="action" href="https://github.com/g-flame-oss/Docker-Projects">View<span aria-hidden="true"> → </span></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="unselected">
+            <div class="card">
+                <div class="image"><img src="../assets/sm.jpg"></div>
+                <div class="content">
+                    <span class="title"><a href="#">SM-A127F-Root-GSI-Guide</a></span>
+                    <p class="desc">A simple guide to root and install a GSI and many other things in the Samsung Galaxy A12/F/ds model phone with the Exynos 850 chipset</p>
+                    <a class="action" href="https://github.com/g-flame-oss/sm-a127f-Root-gsi-guide">View<span aria-hidden="true"> → </span></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End -->
+
+
+</body>
+</html>
