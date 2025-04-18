@@ -1,40 +1,79 @@
-<!doctype html>
-<html>
+<!--By g-flame https://github.com/g-flame*/
+all rights reserved-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G-flame</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <!-- Loading Overlay (this is deco only)-->
     <div class="loading-overlay">
         <div class="loading-spinner"></div>
-        <div class="loading-text">Rendering</div>
-        <div class="loading-credits">G-flame all rights reserved</div>
+        <div class="loading-text">Loading..</div>
     </div>
 
-    <nav>
-        <ul>
-            <img src="./assets/image.png" width="4%" height="4%" alt="Profile">
-            <li class="selected"><a href="./index.html">Home</a></li>
-            <li class="unselected"><a href="./pages/projects.html">Projects</a></li>
-        </ul>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="#home" id="navbar__logo"></i>G-FLAME</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#home" class="navbar__links">Home</a>
+                </li>
+                <a class="navbar__links" href="https://github.com/g-flame-oss/">Github</a>
+                <a class="navbar__links" href="#">Discord</a>
+            </ul>
+        </div>
     </nav>
-    <!--start here-->
-    <!-- From Uiverse.io by Spacious74 --> 
-    <div class="center-screen">
-      <div class="wcard">
-        <div class="wshadow">site in construction...</div>
-      </div>
+
+    <!-- Main Section -->
+    <div class="main" id="home">
+        <div class="main__container">
+            <div class="main__content">
+                <h1>About Me</h1>
+                <h2>I am learning to build software that actually helps people</h2>
+                <p>HTML, CSS, JS, C & C++, BASH </p>
+                <button class="main__btn"><a href="#projects">VIEW PROJECTS</a></button>
+            </div>
+            <div class="main__img--container">
+                <img src="./assets/profile.png" alt="Logo" id="main__img">
+            </div>
+        </div>  
     </div>
 
-    <!-- End -->
+    <!-- Projects Section -->
+    <div class="projects" id="projects-section">
+        <h1>My Projects</h1>
+        <div class="projects__container" id="projects">
+                <!--js will load here-->
+              </div>
+        </div>
+    </div>
+    <!--socials-->
+    <div class="socials">
+        
+    </div>
 
-   
+    <!-- Footer Section -->
+    <div class="footer__container">
+        <p class="website__rights">© G-FLAME 2025. All rights reserved</p>       
+        <p class="website__rights"> This Site is still under development</p>
+        <p class="website__rights"> This is subject to change</p>
+    </div>
 
+    <script src="js.js"></script>
 </body>
 </html>
