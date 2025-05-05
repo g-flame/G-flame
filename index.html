@@ -15,10 +15,15 @@ all rights reserved-->
 </head>
 <body>
     <!-- Loading Overlay (this is deco only)-->
-    <div class="loading-overlay">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Loading..</div>
-    </div>
+    <div class="loader">
+        <div class="loading-spinner">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="loading-text"></div>
+      </div>
 
     <!-- Navbar Section -->
     <nav class="navbar">
@@ -38,21 +43,23 @@ all rights reserved-->
             </ul>
         </div>
     </nav>
-
     <!-- Main Section -->
-    <div class="main" id="home">
+    <section class="main" id="profile-bg">
         <div class="main__container">
             <div class="main__content">
-                <h1>About Me</h1>
-                <h2>I am learning to build software that actually helps people</h2>
-                <p>HTML, CSS, JS, C & C++, BASH </p>
-                <button class="main__btn"><a href="#projects">VIEW PROJECTS</a></button>
+                <h1>G-FLAME</h1>
+                <div class="ty-container">
+                    <span class="text first-text">I am a       </span>
+                    <span class="text sec-text">Open-source Developer</span>
+                </div>
             </div>
+
             <div class="main__img--container">
                 <img src="./assets/profile.png" alt="Logo" id="main__img">
             </div>
-        </div>  
-    </div>
+        </div>
+    </section>
+
 
     <!-- Projects Section -->
     <div class="projects" id="projects-section">
