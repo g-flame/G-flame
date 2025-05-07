@@ -524,13 +524,13 @@ body, html {
   background-color: var(--primary-bg);
 }
 
-.loader {
+/*.loader {
   animation: fadeOut 0.5s ease-in-out 2s forwards;
 }
 
 .loading-overlay {
   animation: fadeOut 0.5s ease-in-out 0.5s forwards;
-}
+}*/
 
 /* Loading spinner with dots */
 .loading-spinner {
