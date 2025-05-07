@@ -1,23 +1,34 @@
-/*By g-flame https://github.com/g-flame*/
-/*all rights reserved*/
+/*
+ * By g-flame https://github.com/g-flame
+ * All rights reserved
+ */
 
-:root {
-  --primary-bg: #1b1d1f;
-  --text-light: #fff;
-  --accent-green: #5c8f4f;
-  --accent-light: #a3f0b0;
-  --accent-hover: #53caa6;
-  --gradient-green: linear-gradient(to top, #2a5726 0%, #2e7e27 100%);
-  --gradient-text: linear-gradient(to top, #1cb81c 0%, #5c8f4f 100%);
-  --gradient-text2: linear-gradient(-20deg, #21ff33 0%, #21fda1 100%);
-  --gradient-heading: linear-gradient(to right, #77ff7e 0%, #90ff7a 0%, #83ff7f 21%, #85f98b 52%, #55cf70 78%, #2ab172 100%);
-  --shadow: 0 4px 8px rgba(45, 59, 48, 0.2);
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+/* ======================================
+ * CSS ROOT VARIABLES
+ * Theme colors and transition settings
+ * ======================================
+ */
+ :root {
+  --primary-bg: #1b1d1f;           /* Main background color */
+  --text-light: #fff;              /* Light text color */
+  --accent-green: #5c8f4f;         /* Primary accent color */
+  --accent-light: #a3f0b0;         /* Lighter accent for hover states */
+  --accent-hover: #53caa6;         /* Secondary hover accent color */
+  --gradient-green: linear-gradient(to top, #2a5726 0%, #2e7e27 100%);    /* Green gradient */
+  --gradient-text: linear-gradient(to top, #3b8f3b 10%, #48ce27 100%);     /* Text gradient 1 */
+  --gradient-text2: linear-gradient(-20deg, #21ff33 0%, #21fda1 100%);    /* Text gradient 2 */
+  --gradient-heading: linear-gradient(to right, #77ff7e 0%, #90ff7a 0%, #83ff7f 21%, #85f98b 52%, #55cf70 78%, #2ab172 100%);  /* Heading gradient */
+  --shadow: 0 4px 8px rgba(45, 59, 48, 0.2);  /* Standard shadow */
+  --transition-fast: 0.2s ease;     /* Fast transition */
+  --transition-normal: 0.3s ease;   /* Normal transition */
+  --transition-slow: 0.5s ease;     /* Slow transition */
 }
 
-/* Reset and Base Styles */
+/* ======================================
+ * RESET AND BASE STYLES
+ * Basic reset and default styling
+ * ======================================
+ */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,11 +36,17 @@
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  background: var(--primary-bg);
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  
 }
 
-/* Navbar Styles */
+/* ======================================
+ * NAVBAR STYLES
+ * Navigation bar and menu styling
+ * ======================================
+ */
 .navbar {
   background: var(--primary-bg);
   height: 80px;
@@ -52,6 +69,7 @@ body {
   padding: 0 50px;
 }
 
+/* Logo styling with gradient text effect */
 #navbar__logo {
   background-image: var(--gradient-text);
   background-size: 100%;
@@ -63,8 +81,15 @@ body {
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
+  width: auto;
+  height: auto;
+  margin: initial;
+  padding: initial;
+  border: initial;
+  position: static;
 }
 
+/* Navigation menu list */
 .navbar__menu {
   display: flex;
   align-items: center;
@@ -75,6 +100,7 @@ body {
   height: 80px;
 }
 
+/* Navigation link styling */
 .navbar__links {
   color: var(--text-light);
   display: flex;
@@ -90,21 +116,23 @@ body {
   color: var(--accent-green);
 }
 
+/* Navigation image styling */
 .nav__img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  width: 26%;
-  height: 40%;
-  transition: var(--transition-normal);
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: inline; 
+  position: absolute;
+  
 }
 
 .nav__img:hover {
   filter: invert(42%) sepia(59%) saturate(419%) hue-rotate(70deg) brightness(94%) contrast(88%);
 }
 
+/* Button styling */
 .button {
   display: flex;
   justify-content: center;
@@ -125,6 +153,7 @@ body {
   background: var(--accent-light);
 }
 
+/* Mobile menu toggle bars */
 .navbar__toggle .bar {
   width: 25px;
   height: 3px;
@@ -133,54 +162,78 @@ body {
   background: var(--text-light);
   display: none;
 }
-/*typing thing*/
-.ty-container{
-  width: 246px;
+
+/* ======================================
+ * TYPING ANIMATION STYLES
+ * Text rotation animation effect
+ * ======================================
+ */
+.outer-headings {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-headings h1 {
+  font-size: 45px;
+}
+
+.inner-headings {
+  border: 0px solid #dddddd;
+  color: var(--gradient-text);
+  height: 50px;
+  line-height: 50px;
+  font-size: 45px;
+  text-transform: uppercase;
   overflow: hidden;
+  ;
 }
-.ty-container .text{
+
+.inner-headings span {
   position: relative;
-  color: #28991e;
-  font-size: 30px;
-  font-weight: 600;
+  color: crimson;
+  animation: rotate-txt 10s ease infinite;
 }
-.ty-container .text.first-text{
-  font-size: 4rem;
-  margin-top: 10px;
-  background-image: var(--gradient-text2);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.text.sec-text:before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #011804;
-  border-left: 2px solid #224d1d;
-  animation: animate 4s steps(12) infinite;
-}
-@keyframes animate{
-  40%, 60%{
-      left: calc(100% + 4px);
+
+/* Text rotation keyframes */
+@keyframes rotate-txt {
+  0%,
+  100% {
+    top: 0;
   }
-  100%{
-      left: 0%;
+  20% {
+    top: 0;
+  }
+  25% {
+    top: -50px;
+  }
+  45% {
+    top: -50px;
+  }
+  50% {
+    top: -100px;
+  }
+  70% {
+    top: -100px;
+  }
+  75% {
+    top: -150px;
+  }
+  95% {
+    top: -150px;
   }
 }
 
-/* Main Content CSS */
+/* ======================================
+ * MAIN CONTENT STYLES
+ * Hero section and main page content
+ * ======================================
+ */
 .main {
-  background-color: var(--primary-bg);
-  background-size: fill;
-  background-position: center;
-  background-repeat: no-repeat;
   transition: opacity 0.3s ease-in-out;
-  background-image: url('./assets/profile.png');
+  position: relative;
 }
 
 .main__container {
@@ -194,6 +247,7 @@ body {
   padding: 0 50px;
 }
 
+/* Main content text styling */
 .main__content {
   color: var(--text-light);
   width: 100%;
@@ -223,7 +277,16 @@ body {
   font-size: 2rem;
   font-weight: 700;
 }
+.main__content span {
 
+  background-image: var(--gradient-text);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Main button with hover effect */
 .main__btn {
   font-size: 1rem;
   background-image: var(--gradient-green);
@@ -246,6 +309,7 @@ body {
   text-decoration: none;
 }
 
+/* Button hover effect with slide animation */
 .main__btn:after {
   position: absolute;
   content: '';
@@ -262,22 +326,34 @@ body {
   width: 100%;
 }
 
+/* Main image container styling */
 .main__img--container {
-  text-align: center;
-  height: 500px; /* Set an appropriate height */
-  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;;
 }
 
 #main__img {
-  height: 95%;
-  width: 80%;
+  width: 40vmin;
+  height: 40vmin;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* Projects Section */
+.mob-h1 {
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: inline; /* or display: none if you don't want it at all */
+  position: absolute;
+}
+
+
+/* ======================================
+ * PROJECTS SECTION STYLES
+ * Portfolio project cards and layout
+ * ======================================
+ */
 .projects {
   background: var(--primary-bg);
   display: flex;
@@ -300,6 +376,7 @@ body {
   width: 100%;
 }
 
+/* Projects grid layout */
 .projects__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
@@ -309,6 +386,7 @@ body {
   max-width: 1200px;
 }
 
+/* Project card styling */
 .projects__card {
   height: 525px;
   border-radius: 8px;
@@ -321,6 +399,7 @@ body {
   box-shadow: var(--shadow);
 }
 
+/* Alternating background images for cards */
 .projects__card:nth-child(odd) {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(45, 59, 48, 0.6) 100%),
@@ -333,6 +412,7 @@ body {
     url('/api/placeholder/400/525');
 }
 
+/* Project card content styling */
 .projects__card h2 {
   position: absolute;
   top: 350px;
@@ -360,6 +440,7 @@ body {
   line-height: 1.4;
 }
 
+/* Project card button styling */
 .projects__card button {
   color: var(--text-light);
   padding: 8px 16px;
@@ -384,6 +465,7 @@ body {
   transform: scale(1.05);
 }
 
+/* Project language badge */
 .language-badge {
   position: absolute;
   top: 320px;
@@ -404,7 +486,11 @@ body {
   display: inline-block;
 }
 
-/* Footer */
+/* ======================================
+ * FOOTER STYLES
+ * Footer section layout
+ * ======================================
+ */
 .footer__container {
   background-color: var(--primary-bg);
   padding: 5rem 0;
@@ -418,9 +504,11 @@ body {
   color: var(--text-light);
 }
 
-/* Loading */
-
-/* Loading */
+/* ======================================
+ * LOADING ANIMATION STYLES
+ * Page loading overlay and animations
+ * ======================================
+ */
 .loader,
 .loading-overlay {
   position: fixed;
@@ -444,7 +532,7 @@ body {
   animation: fadeOut 0.5s ease-in-out 0.5s forwards;
 }
 
-/* style loader with dots */
+/* Loading spinner with dots */
 .loading-spinner {
   display: flex;
   justify-content: center;
@@ -481,7 +569,7 @@ body {
   animation: dots 1.5s ease-in-out infinite 0.9s;
 }
 
-
+/* Loading animation keyframes */
 @keyframes dots {
   0%, 100% {
     transform: translateY(0);
@@ -517,19 +605,101 @@ body {
   }
 }
 
-
 .loader.hidden,
 .loading-overlay.hidden {
   display: none;
 }
 
+/* ======================================
+ * ANIMATIONS AND TRANSITIONS
+ * Image transitions and background effects
+ * ======================================
+ */
+#main__img {
+  transition: opacity 0.3s ease-in-out;
+}
+.fade-out {
+  opacity: 0;
+}
 
-/* Mobile Responsiveness */
+.fade-in {
+  opacity: 1;
+}
+
+
+/* ======================================
+ * BACKGROUND ANIMATION STYLES
+ * Cycling background images with fade effect
+ * ======================================
+ */
+ .background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation-name: backgroundChange;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 20s; 
+}
+
+.bg-1 {
+  background-image: url('/assets/github.png');
+  animation-delay: 0s;
+}
+
+.bg-2 {
+  background-image: url('/assets/learn.png');
+  animation-delay: 5s; /* 1/4 of the total duration */
+}
+
+.bg-3 {
+  background-image: url('/assets/linux.png');
+  animation-delay: 10s; /* 2/4 of the total duration */
+}
+
+.bg-4 {
+  background-image: url('/assets/ado.png');
+  animation-delay: 15s; /* 3/4 of the total duration */
+}
+
+@keyframes backgroundChange {
+  0%, 95%, 100% {
+      opacity: 0;
+  }
+  20%, 75% {
+      opacity: 1;
+  }
+}
+
+
+/* ======================================
+ * RESPONSIVE DESIGN
+ * Media queries for different screen sizes
+ * ======================================
+ */
+
+/* Tablet and smaller screens */
 @media screen and (max-width: 960px) {
+  /* Navbar adjustments */
   .navbar__container {
     padding: 0;
   }
 
+  /* Mobile menu styling */
   .navbar__menu {
     display: grid;
     grid-template-columns: auto;
@@ -540,7 +710,7 @@ body {
     opacity: 1;
     transition: all var(--transition-slow);
     height: 50vh;
-    z-index: -1;
+    z-index: 999;
   }
 
   .navbar__menu.active {
@@ -556,11 +726,13 @@ body {
     padding-left: 25px;
   }
 
+  /* Mobile menu toggle styling */
   .navbar__toggle .bar {
     display: block;
     cursor: pointer;
   }
 
+  /* Mobile menu animation */
   #mobile-menu.is-active .bar:nth-child(2) {
     opacity: 0;
   }
@@ -573,6 +745,7 @@ body {
     transform: translateY(-8px) rotate(-45deg);
   }
   
+  /* Mobile nav image adjustments */
   .nav__img {
     width: 24px;
     height: 24px;
@@ -598,6 +771,7 @@ body {
     transform: translate(5%, 20%);
   }
   
+  /* Projects section adjustments */
   .projects {
     padding: 20px;
   }
@@ -613,7 +787,9 @@ body {
   }
 }
 
+/* Mobile devices */
 @media screen and (max-width: 768px) {
+  /* Main section adjustments */
   .main__container {
     grid-template-columns: auto;
     height: 90vh;
@@ -621,12 +797,7 @@ body {
 
   .main__content {
     text-align: center;
-    margin-bottom: 4rem;
-  }
 
-  .main__content h1 {
-    font-size: 2.5rem;
-    margin-top: 2rem;
   }
 
   .main__content h2 {
@@ -637,9 +808,57 @@ body {
     margin-top: 1rem;
     font-size: 1.5rem;
   }
+  
+  
+  .main__img--container {
+    display: flex;
+   visibility: hidden;
+  }
+  
+  #main__img {
+    width: 40vmin;
+    height: 40vmin;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .nav__img {
+    width: 18vmin; 
+    height: 18vmin;
+    border-radius: 50%;
+    object-fit: cover; 
+  }
+  #navbar__logo {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: inline; 
+    position: absolute
+  }
+
+  .mob-h1 {
+    width: 80%;
+    height: 50%;
+    margin-left: 1vmin;
+    padding: initial;
+    border: initial;
+    display:block; 
+    border: 0px solid #dddddd;
+    color: var(--gradient-text);
+    line-height: 50px;
+    font-size: 45px;
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+  
+  
 }
 
+/* Smaller mobile devices */
 @media screen and (max-width: 480px) {
+  /* Main content text size adjustments */
   .main__content h1 {
     font-size: 2rem;
     margin-top: 3rem;
@@ -654,11 +873,13 @@ body {
     font-size: 1.5rem;
   }
 
+  /* Button adjustments */
   .main__btn {
     padding: 12px 36px;
     margin: 2.5rem 0;
   }
   
+  /* Projects section adjustments */
   .projects h1 {
     font-size: 1.5rem;
   }
@@ -667,6 +888,7 @@ body {
     grid-template-columns: 1fr;
   }
   
+  /* Project card size and positioning adjustments */
   .projects__card {
     height: 480px;
   }
@@ -686,27 +908,5 @@ body {
   
   .language-badge {
     top: 290px;
-  }
-}
-#main__img {
-  transition: opacity 0.3s ease-in-out;
-}
-#profile-bg {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: opacity 0.3s ease-in-out;
-  background-image: url('./assets/profile.png'); /* Default image */
-}
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
-}
-@media screen and (max-width: 768px) {
-  .main__img--container {
-    height: 300px; /* Adjust for mobile */
   }
 }

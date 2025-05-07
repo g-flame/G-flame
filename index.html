@@ -1,20 +1,32 @@
-<!--By g-flame https://github.com/g-flame*/
-all rights reserved-->
+<!--
+    By g-flame https://github.com/g-flame
+    All rights reserved
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and responsive viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title -->
     <title>G-flame</title>
+    
+    <!-- CSS stylesheet link -->
     <link rel="stylesheet" href="./style.css">
+    
+    <!-- Favicon links for different sizes -->
     <link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16">
+    
+    <!-- Google Fonts - Roboto family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Overlay (this is deco only)-->
+    
+    <!-- Loading Animation Overlay - Decorative only -->
     <div class="loader">
         <div class="loading-spinner">
           <div class="dot"></div>
@@ -23,65 +35,94 @@ all rights reserved-->
           <div class="dot"></div>
         </div>
         <div class="loading-text"></div>
-      </div>
+    </div>
 
-    <!-- Navbar Section -->
+    <!-- Navigation Bar Section -->
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="#home" id="navbar__logo"></i>G-FLAME</a>
+            <!-- Logo/Brand Link -->
+            <img class="nav__img" src="./assets/profile.png" alt="Logo">
+            <a href="#home" id="navbar__logo">G-FLAME</a>
+            
+            
+            <!-- Mobile Menu Toggle -->
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+            
+            <!-- Navigation Menu Items -->
             <ul class="navbar__menu">
                 <li class="navbar__item">
                     <a href="#home" class="navbar__links">Home</a>
                 </li>
+                <!-- Social/External Links -->
                 <a class="navbar__links" href="https://github.com/g-flame-oss/">Github</a>
                 <a class="navbar__links" href="https://discord.gg/n89WUuuCsS">Discord</a>
             </ul>
         </div>
     </nav>
-    <!-- Main Section -->
+    
+    
+    
+    <!-- Background Image Banner -->
+    <div class="background-container">
+        <div class="bg-image bg-1"></div>
+        <div class="bg-image bg-2"></div>
+        <div class="bg-image bg-3"></div>
+        <div class="bg-image bg-4"></div>
+    </div>
+    
+    <!-- Main Hero Section -->
     <section class="main" id="profile-bg">
         <div class="main__container">
+            <!-- Main Content Text Area -->
             <div class="main__content">
-                <h1>G-FLAME</h1>
-                <div class="ty-container">
-                    <span class="text first-text">I am a       </span>
-                    <span class="text sec-text">Open-source Developer</span>
+                
+                <!-- Animated Role Text Rotation -->
+                <div class="outer-headings">
+                    <h1 class="mob-h1">G-flame</h1>
+                    <h1>
+                      I am a,
+                      <div class="inner-headings">
+                        <span>
+                          Open source Developer <br />
+                          Current Learner <br />
+                          Linux User (Arch btw)<br />
+                          Ado Fan <br />
+                        </span>
+                      </div>
+                    </h1>
+                    <!-- CTA Button -->
+                    <button class="main__btn"><a href="#projects">VIEW PROJECTS</a></button>
                 </div>
-                <button class="main__btn"><a href="#projects">VIEW PROJECTS</a></button>
             </div>
-
+            
+            
+            <!-- Profile Image Container -->
             <div class="main__img--container">
                 <img src="./assets/profile.png" alt="Logo" id="main__img">
             </div>
         </div>
     </section>
 
-
-    <!-- Projects Section -->
+    <!-- Projects Portfolio Section -->
     <div class="projects" id="projects-section">
         <h1>My Projects</h1>
         <div class="projects__container" id="projects">
-                <!--js will load here-->
-              </div>
         </div>
     </div>
-    <!--socials-->
-    <div class="socials">
-        
-    </div>
+    
 
     <!-- Footer Section -->
     <div class="footer__container">
         <p class="website__rights">© G-FLAME 2025. All rights reserved</p>       
-        <p class="website__rights"> This Site is still under development</p>
-        <p class="website__rights"> This is subject to change</p>
+        <p class="website__rights">This Site is still under development</p>
+        <p class="website__rights">This is subject to change</p>
     </div>
 
+    <!-- JavaScript File Link -->
     <script src="js.js"></script>
 </body>
 </html>
