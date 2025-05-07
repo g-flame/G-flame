@@ -207,8 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
   UIHandler.init();
   ProjectHandler.loadProjects();
 });
-
+/*
 setTimeout(() => {
   const loader = document.querySelector('.loader');
   if (loader) loader.classList.add('hidden');
 }, 2500);
+*/
