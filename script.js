@@ -13,7 +13,7 @@ const CONFIG = {
   // GitHub authentication settings
   githubAuth: {
     enabled: false,
-    token: '',  
+    token: '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',  
     tokenName: 'GitHub Portfolio', 
     permissions: ['public_repo']
   },
