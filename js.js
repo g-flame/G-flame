@@ -174,7 +174,7 @@ const UIHandler = {
     });
   },
 
-  /*hideLoadingOverlay() {
+  hideLoadingOverlay() {
     const overlay = document.querySelector('.loading-overlay');
     if (overlay) {
       setTimeout(() => {
@@ -184,7 +184,7 @@ const UIHandler = {
         });
       }, CONFIG.loadingTimeout);
     }
-  },*/
+  },
 
   init() {
     const menuButton = document.querySelector('#mobile-menu');
