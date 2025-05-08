@@ -24,7 +24,7 @@ const CONFIG = {
   
   // Image settings
   imageExtensions: ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp'],
-  priorityImageNames: ['banner', 'cover', 'preview', 'header'],
+  priorityImageNames: ['banner'],
   fallbackImage: './assets/placeholder.svg',
   maxImageRetries: 3,
   
@@ -56,7 +56,7 @@ const CONFIG = {
   // Fallback project when GitHub API fails
   fallbackProject: [{
     name: 'Rate limited',
-    description: 'This appears when GitHub projects as the rate limitwas excedeed!!',
+    description: 'This appears when GitHub projects as the rate limit was excedeed!!',
     html_url: '#',
     language: 'error',
   }]
@@ -358,7 +358,7 @@ const ProjectHandler = {
     const rateLimitReset = response.headers.get('X-RateLimit-Reset');
     
     if (rateLimit) {
-      console.log(`GitHub API requests remaining: ${rateLimit}`);
+      console.log(`API requests remaining: ${rateLimit}`);
       
       // If we're using a token and rate limit is low, show a warning
       if (CONFIG.githubAuth.enabled && parseInt(rateLimit) < 20) {
@@ -806,12 +806,7 @@ document.addEventListener('DOMContentLoaded', () => {
     CONFIG.repoShowLimit = CONFIG.reposhowlimit;
   }
   
-  // Ensure token is not set in the configuration (security best practice)
-  if (CONFIG.githubAuth && CONFIG.githubAuth.token) {
-    CONFIG.githubAuth.token = '';
-    CONFIG.githubAuth.enabled = false;
-    console.warn('Token should not be hardcoded in the configuration. Please use the token UI instead.');
-  }
+
   
   // Initialize UI
   UIHandler.init();
@@ -827,3 +822,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load projects
   ProjectHandler.loadProjects();
 });
+console.log("site load complete!");
+console.log("Site with bad code by g-flame!!");
+console.log("performance hit is expected!");
+console.log("This site is still under development");
+console.log("API request system will be changed and optmizied!");

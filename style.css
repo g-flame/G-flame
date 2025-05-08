@@ -587,7 +587,7 @@ body, html {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 20s; 
-  filter: blur(2px);
+  filter: blur(1px);
 }
 
 .bg-1 {
