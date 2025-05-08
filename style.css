@@ -1,34 +1,33 @@
-/*
- * By g-flame https://github.com/g-flame
- * All rights reserved
+/* 
+ * Main stylesheet for G-flame portfolio site
+ * https://github.com/g-flame
  */
 
-/* ======================================
- * CSS ROOT VARIABLES
- * Theme colors and transition settings
- * ======================================
- */
- :root {
-  --primary-bg: #1b1d1f;           /* Main background color */
-  --text-light: #fff;              /* Light text color */
-  --accent-green: #5c8f4f;         /* Primary accent color */
-  --accent-light: #a3f0b0;         /* Lighter accent for hover states */
-  --accent-hover: #53caa6;         /* Secondary hover accent color */
-  --gradient-green: linear-gradient(to top, #2a5726 0%, #2e7e27 100%);    /* Green gradient */
-  --gradient-text: linear-gradient(to top, #3b8f3b 10%, #48ce27 100%);     /* Text gradient 1 */
-  --gradient-text2: linear-gradient(-20deg, #21ff33 0%, #21fda1 100%);    /* Text gradient 2 */
-  --gradient-heading: linear-gradient(to right, #77ff7e 0%, #90ff7a 0%, #83ff7f 21%, #85f98b 52%, #55cf70 78%, #2ab172 100%);  /* Heading gradient */
-  --shadow: 0 4px 8px rgba(45, 59, 48, 0.2);  /* Standard shadow */
-  --transition-fast: 0.2s ease;     /* Fast transition */
-  --transition-normal: 0.3s ease;   /* Normal transition */
-  --transition-slow: 0.5s ease;     /* Slow transition */
+/* ===== VARIABLES ===== */
+:root {
+  /* Colors */
+  --primary-bg: #1b1d1f;
+  --text-light: #fff;
+  --accent-green: #5c8f4f;
+  --accent-light: #a3f0b0;
+  --accent-hover: #53caa6;
+  
+  /* Gradients */
+  --gradient-green: linear-gradient(to top, #2a5726 0%, #2e7e27 100%);
+  --gradient-text: linear-gradient(to top, #3b8f3b 10%, #48ce27 100%);
+  --gradient-text2: linear-gradient(-20deg, #21ff33 0%, #21fda1 100%);
+  --gradient-heading: linear-gradient(to right, #77ff7e 0%, #90ff7a 0%, #83ff7f 21%, #85f98b 52%, #55cf70 78%, #2ab172 100%);
+  
+  /* Effects */
+  --shadow: 0 4px 8px rgba(45, 59, 48, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
 }
 
-/* ======================================
- * RESET AND BASE STYLES
- * Basic reset and default styling
- * ======================================
- */
+/* ===== BASE STYLES ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -38,15 +37,12 @@
 
 body, html {
   height: 100%;
-  font-family: Arial, sans-serif;
-  
+  scroll-behavior: smooth;
+  background-color: var(--primary-bg);
+  color: var(--text-light);
 }
 
-/* ======================================
- * NAVBAR STYLES
- * Navigation bar and menu styling
- * ======================================
- */
+/* ===== NAVBAR ===== */
 .navbar {
   background: var(--primary-bg);
   height: 80px;
@@ -69,7 +65,6 @@ body, html {
   padding: 0 50px;
 }
 
-/* Logo styling with gradient text effect */
 #navbar__logo {
   background-image: var(--gradient-text);
   background-size: 100%;
@@ -83,13 +78,8 @@ body, html {
   font-size: 2rem;
   width: auto;
   height: auto;
-  margin: initial;
-  padding: initial;
-  border: initial;
-  position: static;
 }
 
-/* Navigation menu list */
 .navbar__menu {
   display: flex;
   align-items: center;
@@ -100,7 +90,6 @@ body, html {
   height: 80px;
 }
 
-/* Navigation link styling */
 .navbar__links {
   color: var(--text-light);
   display: flex;
@@ -116,44 +105,21 @@ body, html {
   color: var(--accent-green);
 }
 
-/* Navigation image styling */
 .nav__img {
   width: 0;
   height: 0;
   margin: 0;
   padding: 0;
   border: none;
-  display: inline; 
+  display: inline;
   position: absolute;
-  
 }
 
 .nav__img:hover {
   filter: invert(42%) sepia(59%) saturate(419%) hue-rotate(70deg) brightness(94%) contrast(88%);
 }
 
-/* Button styling */
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  padding: 10px 20px;
-  height: 100%;
-  width: 100%;
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  background: var(--accent-green);
-  color: var(--text-light);
-  transition: var(--transition-normal);
-}
-
-.button:hover {
-  background: var(--accent-light);
-}
-
-/* Mobile menu toggle bars */
+/* Mobile menu toggle */
 .navbar__toggle .bar {
   width: 25px;
   height: 3px;
@@ -163,11 +129,7 @@ body, html {
   display: none;
 }
 
-/* ======================================
- * TYPING ANIMATION STYLES
- * Text rotation animation effect
- * ======================================
- */
+/* ===== ANIMATED TEXT ===== */
 .outer-headings {
   height: 100vh;
   display: flex;
@@ -188,7 +150,6 @@ body, html {
   font-size: 45px;
   text-transform: uppercase;
   overflow: hidden;
-  ;
 }
 
 .inner-headings span {
@@ -197,40 +158,22 @@ body, html {
   animation: rotate-txt 10s ease infinite;
 }
 
-/* Text rotation keyframes */
 @keyframes rotate-txt {
-  0%,
-  100% {
+  0%, 20% {
     top: 0;
   }
-  20% {
-    top: 0;
-  }
-  25% {
+  25%, 45% {
     top: -50px;
   }
-  45% {
-    top: -50px;
-  }
-  50% {
+  50%, 70% {
     top: -100px;
   }
-  70% {
-    top: -100px;
-  }
-  75% {
-    top: -150px;
-  }
-  95% {
+  75%, 95%, 100% {
     top: -150px;
   }
 }
 
-/* ======================================
- * MAIN CONTENT STYLES
- * Hero section and main page content
- * ======================================
- */
+/* ===== MAIN CONTENT ===== */
 .main {
   transition: opacity 0.3s ease-in-out;
   position: relative;
@@ -247,7 +190,6 @@ body, html {
   padding: 0 50px;
 }
 
-/* Main content text styling */
 .main__content {
   color: var(--text-light);
   width: 100%;
@@ -277,8 +219,8 @@ body, html {
   font-size: 2rem;
   font-weight: 700;
 }
-.main__content span {
 
+.main__content span {
   background-image: var(--gradient-text);
   background-size: 100%;
   -webkit-background-clip: text;
@@ -286,7 +228,7 @@ body, html {
   -webkit-text-fill-color: transparent;
 }
 
-/* Main button with hover effect */
+/* Button styles */
 .main__btn {
   font-size: 1rem;
   background-image: var(--gradient-green);
@@ -309,7 +251,6 @@ body, html {
   text-decoration: none;
 }
 
-/* Button hover effect with slide animation */
 .main__btn:after {
   position: absolute;
   content: '';
@@ -326,9 +267,10 @@ body, html {
   width: 100%;
 }
 
-/* Main image container styling */
+/* Profile image */
 .main__img--container {
   display: flex;
+  justify-content: center;
 }
 
 #main__img {
@@ -336,6 +278,7 @@ body, html {
   height: 40vmin;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: var(--shadow);
 }
 
 .mob-h1 {
@@ -344,16 +287,11 @@ body, html {
   margin: 0;
   padding: 0;
   border: none;
-  display: inline; /* or display: none if you don't want it at all */
+  display: inline;
   position: absolute;
 }
 
-
-/* ======================================
- * PROJECTS SECTION STYLES
- * Portfolio project cards and layout
- * ======================================
- */
+/* ===== PROJECTS SECTION ===== */
 .projects {
   background: var(--primary-bg);
   display: flex;
@@ -362,6 +300,7 @@ body, html {
   min-height: 100vh;
   color: var(--text-light);
   padding: 40px 20px;
+  z-index: 1;
 }
 
 .projects h1 {
@@ -374,9 +313,9 @@ body, html {
   font-size: 2.5rem;
   text-align: center;
   width: 100%;
+  z-index: 1;
 }
 
-/* Projects grid layout */
 .projects__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
@@ -386,33 +325,44 @@ body, html {
   max-width: 1200px;
 }
 
-/* Project card styling */
 .projects__card {
   height: 525px;
   border-radius: 8px;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(45, 59, 48, 0.6) 100%);
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   color: var(--text-light);
   overflow: hidden;
-  transition: transform var(--transition-normal);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   box-shadow: var(--shadow);
 }
 
-/* Alternating background images for cards */
-.projects__card:nth-child(odd) {
+.projects__card:not([style*="background-image"]):nth-child(odd) {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(45, 59, 48, 0.6) 100%),
-    url('/api/placeholder/400/525');
+    url('/assets/placeholder.svg');
 }
 
-.projects__card:nth-child(even) {
+.projects__card:not([style*="background-image"]):nth-child(even) {
   background-image: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(45, 59, 48, 0.9) 100%),
-    url('/api/placeholder/400/525');
+    url('/assets/placeholder.svg');
 }
 
-/* Project card content styling */
+.projects__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 70%);
+  z-index: 1;
+  transition: opacity var(--transition-normal);
+}
+
 .projects__card h2 {
   position: absolute;
   top: 350px;
@@ -423,6 +373,7 @@ body, html {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  z-index: 2;
 }
 
 .projects__card p {
@@ -438,9 +389,9 @@ body, html {
   -webkit-box-orient: vertical;
   margin: 0;
   line-height: 1.4;
+  z-index: 2;
 }
 
-/* Project card button styling */
 .projects__card button {
   color: var(--text-light);
   padding: 8px 16px;
@@ -455,6 +406,7 @@ body, html {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition-fast);
+  z-index: 2;
 }
 
 .projects__card button:hover {
@@ -463,9 +415,9 @@ body, html {
 
 .projects__card:hover {
   transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Project language badge */
 .language-badge {
   position: absolute;
   top: 320px;
@@ -476,6 +428,7 @@ body, html {
   border-radius: 10px;
   display: flex;
   align-items: center;
+  z-index: 2;
 }
 
 .language-color {
@@ -486,11 +439,25 @@ body, html {
   display: inline-block;
 }
 
-/* ======================================
- * FOOTER STYLES
- * Footer section layout
- * ======================================
- */
+.loading-text {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 2rem 0;
+  animation: pulse 1.5s infinite;
+}
+
+.error {
+  color: var(--accent-light);
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* ===== FOOTER ===== */
 .footer__container {
   background-color: var(--primary-bg);
   padding: 5rem 0;
@@ -498,19 +465,17 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .website__rights {
   color: var(--text-light);
+  margin-bottom: 0.5rem;
+  z-index: 1;
 }
 
-/* ======================================
- * LOADING ANIMATION STYLES
- * Page loading overlay and animations
- * ======================================
- */
-.loader,
-.loading-overlay {
+/* ===== LOADING ANIMATION ===== */
+.loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -522,17 +487,9 @@ body, html {
   align-items: center;
   z-index: 9999;
   background-color: var(--primary-bg);
-}
-
-.loader {
   animation: fadeOut 0.5s ease-in-out 2s forwards;
 }
 
-.loading-overlay {
-  animation: fadeOut 0.5s ease-in-out 0.5s forwards;
-}
-
-/* Loading spinner with dots */
 .loading-spinner {
   display: flex;
   justify-content: center;
@@ -548,7 +505,6 @@ body, html {
   margin: 0 6px;
 }
 
-/* Individual dot animations */
 .loader .dot:nth-child(1) {
   background-color: #336633; 
   animation: dots 1.5s ease-in-out infinite 0s;
@@ -569,7 +525,6 @@ body, html {
   animation: dots 1.5s ease-in-out infinite 0.9s;
 }
 
-/* Loading animation keyframes */
 @keyframes dots {
   0%, 100% {
     transform: translateY(0);
@@ -605,34 +560,12 @@ body, html {
   }
 }
 
-.loader.hidden,
-.loading-overlay.hidden {
+.loader.hidden {
   display: none;
 }
 
-/* ======================================
- * ANIMATIONS AND TRANSITIONS
- * Image transitions and background effects
- * ======================================
- */
-#main__img {
-  transition: opacity 0.3s ease-in-out;
-}
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
-}
-
-
-/* ======================================
- * BACKGROUND ANIMATION STYLES
- * Cycling background images with fade effect
- * ======================================
- */
- .background-container {
+/* ===== BACKGROUND IMAGES ===== */
+.background-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -654,52 +587,52 @@ body, html {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 20s; 
+  filter: blur(2px);
 }
 
 .bg-1 {
-  background-image: url('https://i.postimg.cc/Ghq6P5mj/github.png');
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://i.postimg.cc/Ghq6P5mj/github.png');
   animation-delay: 0s;
 }
 
 .bg-2 {
-  background-image: url('https://i.postimg.cc/W1yKCqrF/learn.png');
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://i.postimg.cc/W1yKCqrF/learn.png');
   animation-delay: 5s; 
 }
 
 .bg-3 {
-  background-image: url('https://i.postimg.cc/wv8rTKw9/linux.png');
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://i.postimg.cc/wv8rTKw9/linux.png');
   animation-delay: 10s; 
 }
 
 .bg-4 {
-  background-image: url('https://i.postimg.cc/wBsPpxcW/ado.png');
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://i.postimg.cc/wBsPpxcW/ado.png');
   animation-delay: 15s;
 }
 
 @keyframes backgroundChange {
   0%, 95%, 100% {
-      opacity: 0;
+    opacity: 0;
   }
   20%, 75% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
-
-/* ======================================
- * RESPONSIVE DESIGN
- * Media queries for different screen sizes
- * ======================================
- */
-
-/* Tablet and smaller screens */
+/* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 960px) {
-  /* Navbar adjustments */
   .navbar__container {
     padding: 0;
   }
 
-  /* Mobile menu styling */
   .navbar__menu {
     display: grid;
     grid-template-columns: auto;
@@ -726,13 +659,11 @@ body, html {
     padding-left: 25px;
   }
 
-  /* Mobile menu toggle styling */
   .navbar__toggle .bar {
     display: block;
     cursor: pointer;
   }
 
-  /* Mobile menu animation */
   #mobile-menu.is-active .bar:nth-child(2) {
     opacity: 0;
   }
@@ -745,17 +676,12 @@ body, html {
     transform: translateY(-8px) rotate(-45deg);
   }
   
-  /* Mobile nav image adjustments */
   .nav__img {
     width: 24px;
     height: 24px;
     display: block;
     padding: 0;
     margin: 0 auto;
-  }
-
-  .navbar__btn {
-    padding-bottom: 2rem;
   }
 
   .button {
@@ -771,7 +697,6 @@ body, html {
     transform: translate(5%, 20%);
   }
   
-  /* Projects section adjustments */
   .projects {
     padding: 20px;
   }
@@ -787,9 +712,7 @@ body, html {
   }
 }
 
-/* Mobile devices */
 @media screen and (max-width: 768px) {
-  /* Main section adjustments */
   .main__container {
     grid-template-columns: auto;
     height: 90vh;
@@ -797,7 +720,6 @@ body, html {
 
   .main__content {
     text-align: center;
-
   }
 
   .main__content h2 {
@@ -809,17 +731,13 @@ body, html {
     font-size: 1.5rem;
   }
   
-  
   .main__img--container {
-    display: flex;
-   visibility: hidden;
+    visibility: hidden;
   }
   
   #main__img {
     width: 40vmin;
     height: 40vmin;
-    border-radius: 50%;
-    object-fit: cover;
   }
 
   .nav__img {
@@ -828,6 +746,7 @@ body, html {
     border-radius: 50%;
     object-fit: cover; 
   }
+  
   #navbar__logo {
     width: 0;
     height: 0;
@@ -835,7 +754,7 @@ body, html {
     padding: 0;
     border: none;
     display: inline; 
-    position: absolute
+    position: absolute;
   }
 
   .mob-h1 {
@@ -844,7 +763,7 @@ body, html {
     margin-left: 1vmin;
     padding: initial;
     border: initial;
-    display:block; 
+    display: block; 
     border: 0px solid #dddddd;
     color: var(--gradient-text);
     line-height: 50px;
@@ -852,13 +771,9 @@ body, html {
     text-transform: uppercase;
     overflow: hidden;
   }
-  
-  
 }
 
-/* Smaller mobile devices */
 @media screen and (max-width: 480px) {
-  /* Main content text size adjustments */
   .main__content h1 {
     font-size: 2rem;
     margin-top: 3rem;
@@ -873,13 +788,11 @@ body, html {
     font-size: 1.5rem;
   }
 
-  /* Button adjustments */
   .main__btn {
     padding: 12px 36px;
     margin: 2.5rem 0;
   }
   
-  /* Projects section adjustments */
   .projects h1 {
     font-size: 1.5rem;
   }
@@ -888,7 +801,6 @@ body, html {
     grid-template-columns: 1fr;
   }
   
-  /* Project card size and positioning adjustments */
   .projects__card {
     height: 480px;
   }
