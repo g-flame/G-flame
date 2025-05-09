@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <!-- Loading Animation -->
@@ -39,7 +42,7 @@
             <!-- Navigation Links -->
             <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="#home" class="navbar__links">Home</a>
+                    <a href="#home" class="navbar__links"></a>
                 </li>
                 <li class="navbar__item">
                     <a class="navbar__links" href="https://github.com/g-flame-oss/">Github</a>
@@ -48,6 +51,32 @@
                     <a class="navbar__links" href="https://discord.gg/n89WUuuCsS">Discord</a>
                 </li>
             </ul>
+            <div class="music-player">
+    <div class="music-controls">
+        <button class="music-btn" id="prevTrack" title="Previous Track">
+            <i class="fas fa-step-backward"></i>
+        </button>
+        <button class="music-btn" id="playPause" title="Play/Pause">
+            <i class="fas fa-play"></i>
+        </button>
+        <button class="music-btn" id="nextTrack" title="Next Track">
+            <i class="fas fa-step-forward"></i>
+        </button>
+        <button class="music-btn" id="shuffleMusic" title="Shuffle">
+            <i class="fas fa-random"></i>
+        </button>
+    </div>
+    <div class="music-info">
+        <span class="now-playing">Now Playing</span>
+        <span class="track-title">Loading music...</span>
+    </div>
+    <div class="volume-control">
+        <button class="music-btn" id="muteMusic" title="Mute">
+            <i class="fas fa-volume-up"></i>
+        </button>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="50">
+    </div>
+</div>
         </div>
     </nav>
     

@@ -630,6 +630,325 @@ window.AppDebug = {
   ProjectHandler,
   UIHandler
 };
+/*This is totally not necessary and kills performance! well whatever i want it so i got it !*/ 
+/**
+ * ┌─────────────────────────────────────────────────────┐
+ * │                   MUSIC PLAYER                      │
+ * └─────────────────────────────────────────────────────┘
+ */
+const MusicPlayer = {
+  // Audio element
+  audioElement: null,
+  
+  // to lazy to put in the config
+  tracks: [
+    {
+      title: "Stardust",
+      url: "/assets/stardust.mp3", 
+      artist: "JSH"
+    },
+    {
+      title: "Brunch for two",
+      url: "/assets/Brunch-For-Two.mp3",
+      artist: "Tokyo Music Walker"
+    },
+    {
+      title: "Day off",
+      url: "/assets/day-off.mp3",
+      artist: "Tokyo Music Walker"
+    },
+    {
+      title: "Winter Night",
+      url: "/assets/Winter-Night.mp3",
+      artist: "Sakura Girl"
+    }
+  ],
+  
+  // Current track index
+  currentTrackIndex: 0,
+  
+  // Shuffle state
+  shuffleEnabled: false,
+  
+  // Indicates if music has been initialized yet
+  initialized: false,
+  
+  /**
+   * Initialize music player
+   */
+  init() {
+    Logger.debug('Initializing music player');
+    
+    // Create audio element if not exists
+    if (!this.audioElement) {
+      this.audioElement = document.createElement('audio');
+      this.audioElement.id = 'bgMusic';
+      document.body.appendChild(this.audioElement);
+    }
+    
+    // Set up UI references
+    this.playPauseBtn = document.getElementById('playPause');
+    this.prevBtn = document.getElementById('prevTrack');
+    this.nextBtn = document.getElementById('nextTrack');
+    this.shuffleBtn = document.getElementById('shuffleMusic');
+    this.muteBtn = document.getElementById('muteMusic');
+    this.volumeSlider = document.getElementById('volumeSlider');
+    this.trackTitle = document.querySelector('.track-title');
+    
+    // Fallback for missing elements
+    if (!this.playPauseBtn || !this.trackTitle) {
+      Logger.error('Music player elements not found');
+      return;
+    }
+    
+    // Set up event listeners
+    this.setupEventListeners();
+    
+    // Load first track
+    this.loadTrack(this.currentTrackIndex);
+    
+    this.initialized = true;
+    Logger.info('Music player initialized');
+    
+    // Auto-play on init (add this line)
+    this.playTrack();
+  },
+  
+  /**
+   * Set up event listeners for player controls
+   */
+  setupEventListeners() {
+    // Play/Pause button
+    this.playPauseBtn.addEventListener('click', () => this.togglePlayPause());
+    
+    // Previous track
+    this.prevBtn.addEventListener('click', () => this.playPrevTrack());
+    
+    // Next track
+    this.nextBtn.addEventListener('click', () => this.playNextTrack());
+    
+    // Shuffle button
+    this.shuffleBtn.addEventListener('click', () => this.toggleShuffle());
+    
+    // Mute button
+    this.muteBtn.addEventListener('click', () => this.toggleMute());
+    
+    // Volume slider
+    this.volumeSlider.addEventListener('input', () => {
+      this.audioElement.volume = this.volumeSlider.value / 100;
+      this.updateVolumeIcon();
+    });
+    
+    // Track ended
+    this.audioElement.addEventListener('ended', () => this.playNextTrack());
+    
+    // Update UI on audio events
+    this.audioElement.addEventListener('play', () => this.updatePlayPauseIcon());
+    this.audioElement.addEventListener('pause', () => this.updatePlayPauseIcon());
+  },
+  
+  /**
+   * Load a track by index
+   * @param {number} index - Track index to load
+   */
+  loadTrack(index) {
+    // Validate index
+    if (index < 0 || index >= this.tracks.length) {
+      Logger.error(`Invalid track index: ${index}`);
+      return;
+    }
+    
+    const track = this.tracks[index];
+    this.currentTrackIndex = index;
+    
+    try {
+      // Update source and load
+      this.audioElement.src = track.url;
+      this.audioElement.load();
+      
+      // Update track info display
+      this.updateTrackInfo(track);
+      
+      Logger.debug(`Loaded track: ${track.title}`);
+    } catch (error) {
+      Logger.error('Failed to load track', error);
+    }
+  },
+  
+  /**
+   * Update track info display
+   * @param {Object} track - Track information object
+   */
+  updateTrackInfo(track) {
+    if (!this.trackTitle) return;
+    
+    // Format with link if available
+    this.trackTitle.innerHTML = `
+      ${track.title} - <a href="${track.url}" target="_blank" title="Download this track">
+        ${track.artist}
+      </a>
+    `;
+  },
+  
+  /**
+   * Play the current track
+   */
+  playTrack() {
+    try {
+      this.audioElement.play()
+        .then(() => Logger.debug('Music started playing'))
+        .catch(err => {
+          Logger.error('Failed to play audio', err);
+          // Auto-mute for better user experience on autoplay restrictions
+          this.audioElement.muted = true;
+          this.audioElement.play().catch(e => Logger.error('Still failed to play', e));
+        });
+      
+      this.updatePlayPauseIcon();
+    } catch (error) {
+      Logger.error('Error playing track', error);
+    }
+  },
+  
+  /**
+   * Toggle play/pause state
+   */
+  togglePlayPause() {
+    try {
+      if (this.audioElement.paused) {
+        this.playTrack();
+      } else {
+        this.audioElement.pause();
+        Logger.debug('Music paused');
+      }
+      
+      this.updatePlayPauseIcon();
+    } catch (error) {
+      Logger.error('Error toggling play/pause', error);
+    }
+  },
+  
+  /**
+   * Update play/pause button icon
+   */
+  updatePlayPauseIcon() {
+    if (!this.playPauseBtn) return;
+    
+    const icon = this.playPauseBtn.querySelector('i');
+    if (!icon) return;
+    
+    if (this.audioElement.paused) {
+      icon.className = 'fas fa-play';
+      this.playPauseBtn.title = 'Play';
+      this.playPauseBtn.classList.remove('active');
+    } else {
+      icon.className = 'fas fa-pause';
+      this.playPauseBtn.title = 'Pause';
+      this.playPauseBtn.classList.add('active');
+    }
+  },
+  
+  /**
+   * Play next track
+   */
+  playNextTrack() {
+    let nextIndex;
+    
+    if (this.shuffleEnabled) {
+      // Get random track that's not the current one
+      do {
+        nextIndex = Math.floor(Math.random() * this.tracks.length);
+      } while (nextIndex === this.currentTrackIndex && this.tracks.length > 1);
+    } else {
+      // Move to next track or loop back to first
+      nextIndex = (this.currentTrackIndex + 1) % this.tracks.length;
+    }
+    
+    this.loadTrack(nextIndex);
+    
+    // Always start playing when next track button is clicked
+    this.playTrack();
+  },
+  
+  /**
+   * Play previous track
+   */
+  playPrevTrack() {
+    let prevIndex;
+    
+    if (this.shuffleEnabled) {
+      // Get random track that's not the current one
+      do {
+        prevIndex = Math.floor(Math.random() * this.tracks.length);
+      } while (prevIndex === this.currentTrackIndex && this.tracks.length > 1);
+    } else {
+      // Move to previous track or loop to last
+      prevIndex = (this.currentTrackIndex - 1 + this.tracks.length) % this.tracks.length;
+    }
+    
+    this.loadTrack(prevIndex);
+    
+    // Always start playing when prev track button is clicked
+    this.playTrack();
+  },
+  
+  /**
+   * Toggle shuffle mode
+   */
+  toggleShuffle() {
+    this.shuffleEnabled = !this.shuffleEnabled;
+    
+    if (this.shuffleBtn) {
+      if (this.shuffleEnabled) {
+        this.shuffleBtn.classList.add('active');
+      } else {
+        this.shuffleBtn.classList.remove('active');
+      }
+    }
+    
+    Logger.debug(`Shuffle ${this.shuffleEnabled ? 'enabled' : 'disabled'}`);
+  },
+  
+  /**
+   * Toggle mute state
+   */
+  toggleMute() {
+    this.audioElement.muted = !this.audioElement.muted;
+    this.updateVolumeIcon();
+    Logger.debug(`Audio ${this.audioElement.muted ? 'muted' : 'unmuted'}`);
+  },
+  
+  /**
+   * Update volume icon based on current volume
+   */
+  updateVolumeIcon() {
+    if (!this.muteBtn) return;
+    
+    const icon = this.muteBtn.querySelector('i');
+    if (!icon) return;
+    
+    if (this.audioElement.muted || this.audioElement.volume === 0) {
+      icon.className = 'fas fa-volume-mute';
+    } else if (this.audioElement.volume < 0.5) {
+      icon.className = 'fas fa-volume-down';
+    } else {
+      icon.className = 'fas fa-volume-up';
+    }
+  }
+};
+
+// Initialize music player when document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Add to the existing event listener
+  setTimeout(() => {
+    MusicPlayer.init();
+  }, 500); // Slight delay to ensure DOM is ready
+});
+
+// Export for debugging
+window.AppDebug.MusicPlayer = MusicPlayer;
+
+
 Logger.info("© G-FLAME 2025. All rights reserved")
 Logger.info("This Site is still under development! everything is subject to change!")
 Logger.info("Site initialization started");
