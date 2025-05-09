@@ -27,6 +27,9 @@ const CONFIG = {
     'Airlink-installer': 'https://i.postimg.cc/W3FDzSPs/airlink.png',
     'skyport': 'https://i.postimg.cc/KcTky9NN/skyport.png',
     'android_device_lenovo_marino': 'https://i.postimg.cc/85276W1M/lenovo.jpg',
+    'md-viewer':'https://i.postimg.cc/Ss8ps1DL/420274837-5616b3a2-5686-4022-bcd4-b06edf6a8309.png',
+    'Docker-Projects':'https://i.postimg.cc/g0WVQn1Y/docker-projects.png',
+    'rpi-options':'https://i.postimg.cc/nzwQFzS9/image.png',
   },
   
   // Programming language colors
