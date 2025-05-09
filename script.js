@@ -644,22 +644,22 @@ const MusicPlayer = {
   tracks: [
     {
       title: "Stardust",
-      url: "/assets/stardust.mp3", 
+      url: "https://files.catbox.moe/t2tqns.mp3", 
       artist: "JSH"
     },
     {
       title: "Brunch for two",
-      url: "/assets/Brunch-For-Two.mp3",
+      url: "https://files.catbox.moe/x2rksv.mp3",
       artist: "Tokyo Music Walker"
     },
     {
       title: "Day off",
-      url: "/assets/day-off.mp3",
+      url: "https://files.catbox.moe/x99j66.mp3",
       artist: "Tokyo Music Walker"
     },
     {
       title: "Winter Night",
-      url: "/assets/Winter-Night.mp3",
+      url: "https://files.catbox.moe/exsyks.mp3",
       artist: "Sakura Girl"
     }
   ],
