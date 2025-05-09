@@ -328,27 +328,31 @@ body, html {
 .projects__card {
   height: 525px;
   border-radius: 8px;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(45, 59, 48, 0.6) 100%);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
   color: var(--text-light);
   overflow: hidden;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   box-shadow: var(--shadow);
+  background-color: var(--primary-bg);
 }
 
-.projects__card:not([style*="background-image"]):nth-child(odd) {
-  background-image: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(45, 59, 48, 0.6) 100%),
-    url('/assets/placeholder.svg');
+#project__img, 
+.projects__card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: transform var(--transition-normal);
 }
 
-.projects__card:not([style*="background-image"]):nth-child(even) {
-  background-image: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(45, 59, 48, 0.9) 100%),
-    url('/assets/placeholder.svg');
+.projects__card:hover img {
+  transform: scale(1.05);
 }
 
 .projects__card::after {
@@ -358,8 +362,9 @@ body, html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 70%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.8) 100%);
   z-index: 1;
+  border-radius: 8px;
   transition: opacity var(--transition-normal);
 }
 
@@ -456,6 +461,17 @@ body, html {
   background-color: rgba(255, 0, 0, 0.1);
   border-radius: 8px;
 }
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  #project__img, 
+  .projects__card img {
+    height: 260px;
+  }
+}
+
+
+
 
 /* ===== FOOTER ===== */
 .footer__container {
