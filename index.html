@@ -3,16 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G-flame</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>site in construction</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/tRdKJT0w/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/X7VTCb4J/favicon-16x16.png" sizes="16x16">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1>This is a place holder site!</h1>
-<h2> The old website was too slow and had very bad code so i will rewrite the website ! But you can visit it by clicking the button below ! ~G-flame</h1>
-<a href="https://g-flame.github.io/G-flame/old-website/index.html">Old-website</a>
-<footer href="https://github.com/g-flame-oss">G-flame</footer>
-<script src="script.js"></script>
+    <!-- Loading Screen -->
+   <!-- <div class="loader" id="loader">
+        <div class="loading-content">
+            <div class="brand-logo">G-flame</div>
+            <div class="loading-spinner">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="loading-text">Initializing...</div>
+        </div>
+    </div> -->
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Background Animation -->
+        <div class="bg-animation">
+            <div class="floating-orb orb-1"></div>
+            <div class="floating-orb orb-2"></div>
+            <div class="floating-orb orb-3"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="hero-section">
+                    <h1 class="hero-title">
+                        <span class="line">Hello There!</span>
+                        <span class="line brand-name">I am G-flame</span>
+                    </h1>
+                    
+                    <div class="status-card">
+                        <div class="status-indicator">
+                            <div class="pulse-dot"></div>
+                            <span>Site Under Development</span>
+                        </div>
+                        
+                        <h2 class="hero-subtitle">
+                            The previous website was experiencing performance issues and contained legacy code. 
+                            I'm currently rebuilding it with stuff that i learned after attending a course .
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Cards -->
+        <section class="navigation-section">
+            <div class="container">
+                <div class="nav-grid">
+                    <a href="https://g-flame.github.io/G-flame/old-website/" class="nav-card old-site" data-tilt>
+                        <div class="card-icon">🏚️</div>
+                        <h3>Legacy Website</h3>
+                        <p>Visit the previous version (performance warning)</p>
+                        <div class="card-arrow">→</div>
+                    </a>
+                    
+                    <a href="https://g-flame.github.io/G-flame/new-website/" class="nav-card new-site" data-tilt>
+                        <div class="card-icon">🚀</div>
+                        <h3>New Website</h3>
+                        <p>Preview the work-in-progress version</p>
+                        <div class="card-arrow">→</div>
+                    </a>
+                    
+                    <a href="https://github.com/g-flame-oss" class="nav-card github" data-tilt>
+                        <div class="card-icon">💻</div>
+                        <h3>GitHub Profile</h3>
+                        <p>Check out my open source projects</p>
+                        <div class="card-arrow">→</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="progress-section">
+            <div class="container">
+                <div class="progress-card">
+                    <h3>Development Progress</h3>
+                    <div class="progress-items">
+                        <div class="progress-item">
+                            <span>Performance Optimization</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <span>Modern UI/UX Design</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <span>Code Refactoring</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="--progress: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <span class="brand-text">G-flame</span>
+                        <span class="tagline">View my other projects in my github!</span>
+                    </div>
+                    <div class="footer-links">
+                        <a href="https://github.com/g-flame-oss" target="_blank">GitHub</a>
+                        <span class="divider">•</span>
+                        <span class="year">2025</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
