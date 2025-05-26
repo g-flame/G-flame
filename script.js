@@ -186,10 +186,6 @@ const throttle = (func, limit) => {
   };
 };
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
   new GFlameWebsite();
   console.log('Website loaded');
