@@ -1,200 +1,98 @@
-class GFlameWebsite {
-  constructor() {
-    this.navCards = document.querySelectorAll('.nav-card');
-    this.progressBars = document.querySelectorAll('.progress-fill');
-    this.init();
-  }
+// ===== CONFIG & STATE =====
+const GITHUB_USERNAME = 'g-flame-oss';
+const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
+// i used claude for this i suck at js bro why is it so hard ! my old code looked and worked like shit this is just perfect!
+let projects = [];
+let isLoading = false;
+const projectsGrid = document.getElementById('projects-grid');
+document.addEventListener('DOMContentLoaded', () => {
+    loadGitHubProjects();
+});
 
-  init() {
-    this.setupEventListeners();
-    this.setupIntersectionObserver();
-    this.initializeProgressBars();
-    this.setupCardHoverEffects();
-  }
-
-  setupEventListeners() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', this.smoothScroll);
-    });
-
-    document.querySelectorAll('a[href^="http"]').forEach(link => {
-      link.addEventListener('click', this.handleExternalLink);
-    });
-
-    document.addEventListener('keydown', this.handleKeyboard);
-  }
-
-  setupIntersectionObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-          
-          if (entry.target.classList.contains('progress-section')) {
-            this.animateProgressBars();
-          }
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    document.querySelectorAll('section, .status-card').forEach(section => {
-      observer.observe(section);
-    });
-  }
-
-  initializeProgressBars() {
-    this.progressBars.forEach(bar => {
-      bar.style.transform = 'scaleX(0)';
-    });
-  }
-
-  animateProgressBars() {
-    this.progressBars.forEach((bar, index) => {
-      setTimeout(() => {
-        bar.style.transform = 'scaleX(1)';
-        bar.style.transition = 'transform 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
-      }, index * 200);
-    });
-  }
-
-  setupCardHoverEffects() {
-    this.navCards.forEach(card => {
-      card.addEventListener('mouseenter', this.handleCardHover);
-      card.addEventListener('mouseleave', this.handleCardLeave);
-      card.addEventListener('click', this.handleCardClick);
-    });
-  }
-
-  handleCardHover = (e) => {
-    const card = e.currentTarget;
-    card.style.transform = 'translateY(-8px) scale(1.02)';
-    card.style.boxShadow = '0 8px 40px rgba(0, 255, 136, 0.15)';
+// ===== GITHUB API INTEGRATION =====
+async function loadGitHubProjects() {
+    if (isLoading) return;
+    isLoading = true;
     
-    const arrow = card.querySelector('.card-arrow');
-    if (arrow) {
-      arrow.style.transform = 'translateX(5px)';
+    try {
+        const response = await fetch(GITHUB_API_URL, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        });
+        
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        const repos = await response.json();
+        
+        projects = repos
+            .filter(repo => !repo.fork && repo.description)
+            .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
+            .slice(0, 12);
+        
+        renderProjects(projects);
+        
+    } catch (error) {
+        console.error('Error loading GitHub projects:', error);
+        showProjectsError();
+    } finally {
+        isLoading = false;
     }
-  }
-
-  handleCardLeave = (e) => {
-    const card = e.currentTarget;
-    card.style.transform = 'translateY(0) scale(1)';
-    card.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-    
-    const arrow = card.querySelector('.card-arrow');
-    if (arrow) {
-      arrow.style.transform = 'translateX(0)';
-    }
-  }
-
-  handleCardClick = (e) => {
-    const card = e.currentTarget;
-    const href = card.getAttribute('href');
-    
-    if (href && href.startsWith('http')) {
-      card.style.opacity = '0.7';
-      card.style.pointerEvents = 'none';
-      
-      const loadingDot = document.createElement('div');
-      loadingDot.className = 'loading-dot';
-      loadingDot.innerHTML = '⚡';
-      loadingDot.style.cssText = `
-        position: absolute;
-        top: 50%;
-        right: 1rem;
-        transform: translateY(-50%);
-        animation: pulse 1s ease-in-out infinite;
-      `;
-      
-      card.appendChild(loadingDot);
-      
-      setTimeout(() => {
-        card.style.opacity = '1';
-        card.style.pointerEvents = 'auto';
-        if (loadingDot.parentNode) {
-          loadingDot.remove();
-        }
-      }, 3000);
-    }
-  }
-
-  handleExternalLink = (e) => {
-    const link = e.currentTarget;
-    link.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-      link.style.transform = 'scale(1)';
-    }, 150);
-  }
-
-  smoothScroll = (e) => {
-    e.preventDefault();
-    const targetId = e.currentTarget.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-    
-    if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  }
-
-  handleKeyboard = (e) => {
-    if (e.key === 'Escape') {
-      this.resetAllStates();
-    }
-    
-    if (e.key === 'Enter' && document.activeElement.classList.contains('nav-card')) {
-      document.activeElement.click();
-    }
-  }
-
-  resetAllStates() {
-    this.navCards.forEach(card => {
-      card.style.transform = 'translateY(0) scale(1)';
-      card.style.opacity = '1';
-      card.style.pointerEvents = 'auto';
-      
-      const loadingDot = card.querySelector('.loading-dot');
-      if (loadingDot) {
-        loadingDot.remove();
-      }
-    });
-  }
 }
 
-const debounce = (func, wait) => {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
+function showProjectsError() {
+    projectsGrid.innerHTML = `
+        <div class="projects-error">
+            <p>Unable to load projects from GitHub at the moment.</p>
+            <p>Please check back later or visit my <a href="https://github.com/${GITHUB_USERNAME}" target="_blank">GitHub profile</a> directly.</p>
+        </div>
+    `;
+}
 
-const throttle = (func, limit) => {
-  let inThrottle;
-  return function executedFunction(...args) {
-    if (!inThrottle) {
-      func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  };
-};
+// ===== PROJECT RENDERING =====
+function renderProjects(projectsToRender) {
+    const projectsHTML = projectsToRender.map((project, index) => `
+        <div class="project-card" style="animation-delay: ${index * 0.1}s">
+            <div class="project-header">
+                <div>
+                    <h3 class="project-title">${formatProjectName(project.name)}</h3>
+                    <p class="project-description">${project.description || 'No description available'}</p>
+                </div>
+            </div>
+            <div class="project-tech">
+                ${project.language ? `<span class="tech-tag">${project.language}</span>` : ''}
+                ${project.topics ? project.topics.slice(0, 3).map(topic => 
+                    `<span class="tech-tag">${topic}</span>`
+                ).join('') : ''}
+            </div>
+            <div class="project-links">
+                <a href="${project.html_url}" class="project-link primary" target="_blank">
+                    View Code
+                </a>
+                ${project.homepage ? `
+                    <a href="${project.homepage}" class="project-link secondary" target="_blank">
+                        Live Demo
+                    </a>
+                ` : ''}
+            </div>
+        </div>
+    `).join('');
+    
+    projectsGrid.innerHTML = projectsHTML;
+    observeProjectCards();
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-  new GFlameWebsite();
-  console.log('Website loaded');
-});
+function formatProjectName(name) {
+    return name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
 
-window.addEventListener('error', (e) => {
-  console.error('Error:', e.error);
-});
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { GFlameWebsite };
+function observeProjectCards() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
 }

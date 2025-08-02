@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>site in construction!</title>
+    <title>Site in Construction!</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/tRdKJT0w/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/X7VTCb4J/favicon-16x16.png" sizes="16x16">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Main Content -->
-    <main class="main-content" id="mainContent">
-        <!-- Background Animation -->
-        <div class="bg-animation">
-            <div class="floating-orb orb-1"></div>
-            <div class="floating-orb orb-2"></div>
-            <div class="floating-orb orb-3"></div>
-        </div>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+    </div>
 
-        <!-- Header -->
-        <header class="header">
-            <div class="container">
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header -->
+            <header class="header">
                 <div class="hero-section">
                     <h1 class="hero-title">
                         <span class="line">Hello There!</span>
@@ -30,85 +30,41 @@
                     
                     <div class="status-card">
                         <div class="status-indicator">
-                            <div class="pulse-dot"></div>
-                            <span>Site Under Development</span>
+                            <span>Currently learning JS ,C++ ,C </span>
                         </div>
-                        
-                        <h2 class="hero-subtitle">
-                            The previous website was experiencing performance issues and contained legacy code. 
-                            I'm currently rebuilding it with stuff that i learned after attending a course .
-                        </h2>
+                        <p class="hero-subtitle">
+                            A small time dev learning and developing open-source software!
+                        </p>
                     </div>
                 </div>
-            </div>
-        </header>
+            </header>
 
-        <!-- Navigation Cards -->
-        <section class="navigation-section">
-            <div class="container">
-                <div class="nav-grid">
-                    <a href="https://g-flame.github.io/G-flame/old-website/" class="nav-card old-site" data-tilt>
-                        <div class="card-icon">🏚️</div>
-                        <h3>Legacy Website</h3>
-                        <p>Visit the previous version (performance warning)</p>
-                        <div class="card-arrow">→</div>
-                    </a>
-                    
-                    <a href="https://g-flame.github.io/G-flame/new-website/" class="nav-card new-site" data-tilt>
-                        <div class="card-icon">🚀</div>
-                        <h3>New Website</h3>
-                        <p>Preview the work-in-progress version</p>
-                        <div class="card-arrow">→</div>
-                    </a>
-                    
-                    <a href="https://github.com/g-flame-oss" class="nav-card github" data-tilt>
-                        <div class="card-icon">💻</div>
-                        <h3>GitHub Profile</h3>
-                        <p>Check out my open source projects</p>
-                        <div class="card-arrow">→</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Progress Section -->
-        <section class="progress-section">
-            <div class="container">
-                <div class="progress-card">
-                    <h3>Development Progress</h3>
-                    <div class="progress-items">
-                        <div class="progress-item">
-                            <span>Performance Optimization</span>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="--progress: 57%"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <span>Modern UI/UX Design</span>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="--progress: 40%"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <span>Code Refactoring</span>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="--progress: 95%"></div>
-                            </div>
-                        </div>
+            <!-- Projects Section -->
+            <section class="projects-section">
+                <div class="section-header">
+                    <h2 class="section-title">GitHub Projects</h2>
+                    <div class="section-line"></div>
+                </div>         
+                <div class="projects-grid" id="projects-grid">
+                    <div class="projects-loading">
+                        <div class="loader"></div>
+                        <p>Loading projects from GitHub...</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <span class="brand-text">G-flame</span>
-                        <span class="info">View my other projects in my github!</span>
-                    </div>
-                    <div class="footer-links">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-text">G-flame</span>
+                    <span href="https://g-flame.github.io/G-flame/old-website/" class="info">Visit my old website
+                        <a href="https://g-flame.github.io/G-flame/old-website/" target="_blank">Here!</a>
+                    </span>
+                     
+                </div>
+                <div class="footer-links">
                     <a href="https://github.com/g-flame-oss" target="_blank">GitHub</a>
                     <span class="divider">•</span>
                     <a href="https://www.youtube.com/@topgflame" target="_blank">Youtube</a>
@@ -116,11 +72,10 @@
                     <a href="https://discord.gg/n89WUuuCsS" target="_blank">Discord</a>
                     <span class="divider">•</span>
                     <span class="year">2025</span>
-                    </div>
                 </div>
             </div>
-        </footer>
-    </main>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
