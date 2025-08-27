@@ -1,6 +1,6 @@
 const USERNAME = 'g-flame';
 const API_BASE = 'https://api.github.com';
-const CACHE_TIME = 10 * 60 * 1000; // 10 minutes
+const CACHE_TIME = 10 * 60 * 1000; 
 const BATCH_SIZE = 3;
 const BATCH_DELAY = 1000;
 
