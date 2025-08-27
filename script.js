@@ -1,4 +1,4 @@
-const USERNAME = 'g-flame-oss';
+const USERNAME = 'g-flame';
 const API_BASE = 'https://api.github.com';
 const CACHE_TIME = 10 * 60 * 1000; // 10 minutes
 const BATCH_SIZE = 3;
@@ -59,37 +59,49 @@ class GitHubPortfolio {
 
 
     async loadProjects() {
-        try {
-            // Check cache first
-            const cached = this.getCache();
-            if (cached) {
-                this.renderProjects(cached);
-                return;
-            }
-
-            this.showLoading();
-            
-            // Fetch repositories
-            const repos = await this.fetchWithRetry(`${API_BASE}/users/${USERNAME}/repos?per_page=100`)
-                .then(data => data
-                    .filter(repo => !repo.fork && repo.description)
-                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-                    .slice(0, 12)
-                );
-
-            // Show repos immediately
-            this.renderProjects(repos);
-            
-            // Fetch commits in background
-            const reposWithCommits = await this.fetchCommitsInBatches(repos);
-            this.setCache(reposWithCommits);
-            this.renderProjects(reposWithCommits);
-            
-        } catch (error) {
-            console.error('Failed to load projects:', error);
-            this.showError(error.message);
+    try {
+        // Check cache first
+        const cached = this.getCache();
+        if (cached) {
+            this.renderProjects(cached);
+            return;
         }
+
+        this.showLoading();
+
+        // Fetch recent public events (includes commits across all repos)
+        const events = await this.fetchWithRetry(`${API_BASE}/users/${USERNAME}/events/public?per_page=100`);
+
+        // Extract commits from push events
+        const commits = events
+            .filter(e => e.type === 'PushEvent')
+            .flatMap(e =>
+                e.payload.commits.map(c => ({
+                    name: e.repo.name,
+                    description: `Commit in ${e.repo.name}`,
+                    lastCommit: {
+                        message: c.message.split('\n')[0],
+                        date: e.created_at,
+                        hash: c.sha.slice(0, 7)
+                    },
+                    html_url: `https://github.com/${e.repo.name}/commit/${c.sha}`
+                }))
+            )
+            .slice(0, 12); // limit feed size
+
+        if (commits.length === 0) {
+            throw new Error("No recent commits found.");
+        }
+
+        this.setCache(commits);
+        this.renderProjects(commits);
+
+    } catch (error) {
+        console.error('Failed to load projects:', error);
+        this.showError(error.message);
     }
+}
+
 
     async fetchCommitsInBatches(repos) {
         const results = [...repos];
@@ -149,34 +161,27 @@ class GitHubPortfolio {
         `;
     }
 
-    renderProjects(repos) {
-        this.grid.innerHTML = repos.map((repo, i) => `
-            <div class="project-card" style="animation-delay: ${i * 100}ms">
-                <h3>${this.formatName(repo.name)}</h3>
-                <p class="description">${this.truncate(repo.description, 85)}</p>
-                
-                ${repo.lastCommit ? `
-                    <div class="commit">
-                        <div class="message">"${this.truncate(repo.lastCommit.message, 40)}"</div>
-                        <div class="details">
-                            <span>${repo.lastCommit.hash}</span>
-                            <span>${this.timeAgo(repo.lastCommit.date)}</span>
-                        </div>
-                    </div>
-                ` : '<div class="commit-placeholder">Loading latest commit...</div>'}
-                
-                <div class="tags">
-                    ${repo.language ? `<span>${repo.language}</span>` : ''}
-                    ${repo.topics?.slice(0, 3).map(tag => `<span>${tag}</span>`).join('') || ''}
-                </div>
-                
-                <div class="links">
-                    <a href="${repo.html_url}" target="_blank">Code</a>
-                    ${repo.homepage ? `<a href="${repo.homepage}" target="_blank">Demo</a>` : ''}
+    renderProjects(commits) {
+    this.grid.innerHTML = commits.map((commit, i) => `
+        <div class="project-card" style="animation-delay: ${i * 100}ms">
+            <h3>${this.formatName(commit.name)}</h3>
+            
+            <div class="commit">
+                <div class="message">"${this.truncate(commit.lastCommit.message, 80)}"</div>
+                <div class="details">
+                    <span>${commit.lastCommit.hash}</span>
+                    <span>${this.timeAgo(commit.lastCommit.date)}</span>
                 </div>
             </div>
-        `).join('');
-    }
+            
+            <div class="links">
+                <a href="${commit.html_url}" target="_blank">View Commit</a>
+                <a href="https://github.com/${commit.name}" target="_blank">Repo</a>
+            </div>
+        </div>
+    `).join('');
+}
+
 
     // Utility functions
     timeAgo(date) {
