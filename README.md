@@ -4,4 +4,3 @@
 ### **G-flame** 
 ### I make the boring stuff easy
 
-[![discord](https://dcbadge.limes.pink/api/server/https://discord.gg/n89WUuuCsS)](https://discord.gg/n89WUuuCsS)
